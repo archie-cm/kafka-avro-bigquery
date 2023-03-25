@@ -5,30 +5,16 @@ Messages from the file are serialized into Avro format, then sent into the Kafka
 The consumer will consume the messages and deserialize it into its original format.
 The deserialized messages are then loaded into your Google BigQuery table.
 
-##### Clone this repository and enter the directory
+##### enter the directory
 ```bash
-git clone https://github.com/yevadrian/kafka-avro-bigquery-docker && cd kafka-avro-bigquery-docker
+cd kafka-avro-bigquery
 ```
 
 ##### Create Kafka stacks with Docker Compose
 ```bash
-sudo docker compose up -d
+sudo docker-compose up
 ```
 
-##### Edit the service-account.json according to your Google Cloud credentials
-```json
-{
-  "type": "service_account",
-  "project_id": "[PROJECT_ID]",
-  "private_key_id": "[KEY_ID]",
-  "private_key": "-----BEGIN PRIVATE KEY-----\n[PRIVATE_KEY]\n-----END PRIVATE KEY-----\n",
-  "client_email": "[SERVICE_ACCOUNT_EMAIL]",
-  "client_id": "[CLIENT_ID]",
-  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
-  "token_uri": "https://accounts.google.com/o/oauth2/token",
-  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
-  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/[SERVICE_ACCOUNT_EMAIL]"
-}
 ```
 
 ##### Install required Python packages
@@ -50,9 +36,15 @@ python3 consumer.py
 ```
 localhost:9021
 ```
+![Screenshot (174)](https://user-images.githubusercontent.com/108534539/227703985-c18170a5-03e2-4eb8-a91e-f8434fb94cef.png)
+
 
 ##### Producer succesfully produce data
-![Producer](https://user-images.githubusercontent.com/110159876/208313550-5317498e-3848-4418-9858-e8a90d425842.jpg)
+![Screenshot (176)](https://user-images.githubusercontent.com/108534539/227703990-058496f3-c422-43c1-9d8b-5ae741d204c1.png)
 
-##### Consumer successfully consume data and load to BigQuery
-![Consumer](https://user-images.githubusercontent.com/110159876/208313637-0d69b28e-02fd-4dbf-adc0-c18b2c208b7c.jpg)
+##### Consumer successfully consume data
+![Screenshot (177)](https://user-images.githubusercontent.com/108534539/227704003-45971398-f4f4-4539-8e0c-8c8933bb6df0.png)
+
+##### Result in BigQuery
+![Screenshot (175)](https://user-images.githubusercontent.com/108534539/227704041-e52de7fa-450e-445b-bf41-a9f44329ab86.png)
+
