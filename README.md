@@ -15,8 +15,6 @@ cd kafka-avro-bigquery
 sudo docker-compose up
 ```
 
-```
-
 ##### Install required Python packages
 ```bash
 pip install -r requirements.txt
